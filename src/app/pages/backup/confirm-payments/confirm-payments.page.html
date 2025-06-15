@@ -1,0 +1,228 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Confirm Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="confirm-payment-screen">
+    <ion-card mode="ios" class="card-content">
+      <div class="flex-content">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="th">
+              JENIS
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="th">
+              LAYANAN
+            </ion-col>
+            <ion-col class="th">
+              BARANG
+            </ion-col>
+            <ion-col class="th">
+              TRANSAKSI
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="td" *ngFor="let item of listDataLoading$ | async">
+              {{item.jenis_layanan}}
+            </ion-col>
+            <ion-col class="td" *ngFor="let item of listDataLoading$ | async">
+              {{item.jenis_barang}}
+            </ion-col>
+            <ion-col class="td" *ngFor="let item of listDataLoading$ | async">
+              <span *ngIf="item.jenis_transaksi=='STC'">Said To Contain</span>
+              <span *ngIf="item.jenis_transaksi=='BBC'">Bulk Bundle Count</span>
+              <span *ngIf="item.jenis_transaksi=='COS'">Count On SIte</span> ({{item.jenis_transaksi}})
+            </ion-col>
+          </ion-row>
+          <ion-grid></ion-grid>
+          <ion-row>
+            <ion-col class="th">
+              DENOMINATION
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="th">
+              UANG KERTAS
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="th">
+              100K
+            </ion-col>
+            <ion-col class="th">
+              75K
+            </ion-col>
+            <ion-col class="th">
+              50K
+            </ion-col>
+            <ion-col class="th">
+              20K
+            </ion-col>
+            <ion-col class="th">
+              10K
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of listDataLoading$ | async">
+            <ion-col class="td">
+              {{item.denom_kertas[100000]!="" ? item.denom_kertas[100000] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_kertas[75000]!="" ? item.denom_kertas[75000] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_kertas[50000]!="" ? item.denom_kertas[50000] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_kertas[20000]!="" ? item.denom_kertas[20000] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_kertas[10000]!="" ? item.denom_kertas[10000] : 0}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="th">
+              5K
+            </ion-col>
+            <ion-col class="th">
+              2K
+            </ion-col>
+            <ion-col class="th">
+              1K
+            </ion-col>
+            <ion-col class="th">
+              500
+            </ion-col>
+            <ion-col class="th">
+              100
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of listDataLoading$ | async">
+            <ion-col class="td">
+              {{item.denom_kertas[5000]!="" ? item.denom_kertas[5000] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_kertas[2000]!="" ? item.denom_kertas[2000] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_kertas[1000]!="" ? item.denom_kertas[1000] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_kertas[500]!="" ? item.denom_kertas[500] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_kertas[100]!="" ? item.denom_kertas[100] : 0}}
+            </ion-col>
+          </ion-row>
+          <ion-grid></ion-grid>
+          <ion-row>
+            <ion-col class="th">
+              UANG LOGAM
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="th">
+              1K
+            </ion-col>
+            <ion-col class="th">
+              500
+            </ion-col>
+            <ion-col class="th">
+              200
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of listDataLoading$ | async">
+            <ion-col class="td">
+              {{item.denom_logam[1000]!="" ? item.denom_logam[1000] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_logam[500]!="" ? item.denom_logam[500] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_logam[200]!="" ? item.denom_logam[200] : 0}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="th">
+              100
+            </ion-col>
+            <ion-col class="th">
+              50
+            </ion-col>
+            <ion-col class="th">
+              25
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of listDataLoading$ | async">
+            <ion-col class="td">
+              {{item.denom_logam[100]!="" ? item.denom_logam[100] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_logam[50]!="" ? item.denom_logam[50] : 0}}
+            </ion-col>
+            <ion-col class="td">
+              {{item.denom_logam[25]!="" ? item.denom_logam[25] : 0}}
+            </ion-col>
+          </ion-row>
+          <ion-grid></ion-grid>
+          <ion-row>
+            <ion-col class="th">
+              TOTAL NOMINAL
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="td" *ngFor="let item of listDataLoading$ | async">
+              {{item.total_nominal | currency:'Rp ':'symbol':'1.0'}}
+            </ion-col>
+          </ion-row>
+          <ion-grid></ion-grid>
+          <!-- <ion-row>
+            <ion-col class="th">
+              VALIDATION PROCESS
+            </ion-col>
+          </ion-row> -->
+<!--           
+          <ion-row>
+            <ion-col class="th">
+              QR BAG
+            </ion-col>
+            <ion-col class="th">
+              QR SEAL
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of listDataLoading$ | async">
+            <ion-col class="td">
+              <span *ngFor="let bag of item.bag_number">- {{bag}} <br></span>
+            </ion-col>
+            <ion-col class="td">
+              <span *ngFor="let seal of item.seal_number">- {{seal}} <br></span>
+            </ion-col>
+          </ion-row> -->
+        </ion-grid>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onChecklist(id)" expand="block" fill="solid" shape="round" color="primary">
+      Confirm Payment
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

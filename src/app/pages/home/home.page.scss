@@ -1,0 +1,89 @@
+.top-card-content {
+    margin-inline: 0px;
+    margin: 10px 0px;
+    padding: 10px;
+
+    .cover-image {
+        height: 140px;
+        width: 100%;
+        border-radius: 5px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .title {
+        font-size: 14px;
+        font-family: 'bold';
+        color: var(--ion-color-dark);
+        text-align: start;
+    }
+
+    .sub-title {
+        font-size: 12px;
+        font-family: 'regular';
+        color: var(--ion-color-medium);
+        text-align: start;
+    }
+
+    .followers {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 0px;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .lbl {
+                font-size: 12px;
+                font-family: 'bold';
+                color: var(--ion-color-dark);
+                text-align: start;
+            }
+
+            .count {
+                font-size: 12px;
+                font-family: 'semi-bold';
+                color: var(--ion-color-dark);
+                text-align: start;
+            }
+        }
+    }
+}
+
+ion-accordion {
+    margin: 10px 0px;
+    border: 1px solid var(--ion-color-dark);
+    border-radius: 10px;
+    ion-item {
+        ion-label {
+            font-size: 14px;
+            font-family: 'bold';
+            color: var(--ion-color-dark);
+        }
+    }
+
+    div {
+        padding: 10px
+    }
+}
+
+.th {
+    background-color: #e6e6e6;
+    border: 1px solid black;
+    font-size: 12px;
+}
+
+.td {
+    background-color: #fff;
+    border: 1px solid black;
+    font-size: 12px;
+}

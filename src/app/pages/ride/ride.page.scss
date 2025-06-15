@@ -1,0 +1,121 @@
+.count-down-timer {
+    box-shadow: 2px 6px 9px 2px rgb(0 0 0 / 20%);
+    text-align: center;
+    background-color: #313b3f;
+    max-width: 300px;
+    margin: 20px auto;
+    color: #d9a74a;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: sans-serif;
+
+    >p {
+        margin: 5px 0 15px 0;
+    }
+
+    .wrapper {
+
+        .description,
+        .times {
+            display: grid;
+            grid-template-columns: repeat(3, calc(25% - 8px));
+            grid-column-gap: 40px;
+        }
+
+        .description {
+            >p {
+                margin: 0;
+                font: normal 14px sans-serif;
+            }
+        }
+
+        .times {
+            p {
+                letter-spacing: -5px;
+                position: relative;
+                margin: 0;
+                font: normal 40px courier, sans-serif;
+
+                ::ng-deep img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 30px;
+                    display: block;
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .count-down-timer {
+        margin: 20px;
+    }
+}
+
+.date-time {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    border: 1px solid var(--ion-color-dark);
+    box-shadow: 2px 3px var(--ion-color-dark);
+    border-radius: 10px;
+    margin: 0px 0px;
+
+    .lbl {
+        font-size: 12px;
+        font-family: 'semi-bold';
+        color: var(--ion-color-dark);
+        text-align: start;
+    }
+
+    .time {
+        font-size: 12px;
+        font-family: 'regular';
+        color: var(--ion-color-medium);
+        text-align: end;
+    }
+}
+
+.th {
+    background-color: #e6e6e6;
+    border: 1px solid black;
+    font-size: 11px;
+}
+
+.td {
+    background-color: #fff;
+    border: 1px solid black;
+    font-size: 11px;
+}
+
+.open-lbl {
+    border: 1px solid black;
+    display: flex;
+    background-color: #E0C4F7;
+    border-radius: 20px;
+    box-shadow: 2px 3px var(--ion-color-dark);
+    align-items: center;
+    justify-content: center;
+
+    .lbl {
+        font-size: 12px;
+        font-family: 'semi-bold';
+        color: var(--ion-color-dark);
+        padding: 5px;
+        width: max-content;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.td-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

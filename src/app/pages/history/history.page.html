@@ -1,0 +1,86 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-title>
+      <img src="assets/bijak.png" alt="Bijak Logo" style="height:32px; vertical-align:middle; margin-right:10px;">
+      History
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="booking-screen">
+    <ion-refresher slot="fixed" (ionRefresh)="loadHistory($event)">
+      <ion-refresher-content
+        pullingText="Pull to load more..."
+        refreshingSpinner="circles"
+      ></ion-refresher-content>
+    </ion-refresher>
+
+    <!-- <ion-list>
+      <ion-item *ngFor="let item of history">
+        <ion-label>
+          <h3>{{ item._id }}</h3>
+          <p>{{ item.detail_runsheet.no_boc }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list> -->
+
+    <div class="booking-list">
+      <div *ngFor="let item of history">
+        <ion-card mode="ios" class="cart-content">
+          <div class="top-content">
+            <ion-label class="date">{{item.detail_runsheet.no_boc}} {{item.detail_runsheet.date_android}}</ion-label>
+            <div class="end-item">
+              <ion-label class="completed">Completed</ion-label>
+            </div>
+          </div>
+          <ion-row class="salon-info-list">
+            <ion-col size="8">
+              <div class="name-content">
+                <div *ngIf="item.detail_runsheet.jenis_layanan=='Pickup'">
+                  <ion-label class="title">{{item.detail_runsheet.pengirim_detail.nama}}</ion-label>
+                  <ion-label class="address">{{item.detail_runsheet.pengirim_detail.alamat}}</ion-label>
+                </div>
+                <div *ngIf="item.detail_runsheet.jenis_layanan=='Delivery'">
+                  <ion-label class="title">{{item.detail_runsheet.penerima_detail.nama}}</ion-label>
+                  <ion-label class="address">{{item.detail_runsheet.penerima_detail.alamat}}</ion-label>
+                </div>
+                <ion-label class="service-title">Services: <span class="service-name name">
+                  {{item.detail_runsheet.jenis_layanan}}</span></ion-label>
+                <ion-label class="service-title">Transaction: <span class="service-name name">
+                  {{item.detail_runsheet.jenis_transaksi}}</span></ion-label>
+                <ion-label class="service-title">Item: <span class="service-name name">
+                  {{item.detail_runsheet.jenis_barang}}</span></ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+          <div class="bottom-content">
+            <ion-row>
+              <ion-col size="12">
+                <!-- {{item._id.$oid}} {{item.detail_runsheet._id.$oid}} -->
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="downloadPdf(item.detail_runsheet._id.$oid, item._id.$oid)">
+                  Download BOC
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card>
+      </div>
+    </div>
+
+    <ion-infinite-scroll (ionInfinite)="loadHistory($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more..."
+      ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+  </div>
+</ion-content>

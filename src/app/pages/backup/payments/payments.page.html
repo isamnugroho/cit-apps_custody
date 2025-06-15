@@ -1,0 +1,67 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Payments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="payment-screen">
+    <ion-radio-group name="auto" value="tesla">
+      <ion-card mode="ios" class="card-content">
+        <ion-item lines="none" class="item-content">
+          <ion-icon slot="start" name="logo-paypal" color="tertiary"></ion-icon>
+          <ion-label>PayPal</ion-label>
+          <ion-radio value="tesla" mode="md"></ion-radio>
+        </ion-item>
+      </ion-card>
+
+      <ion-card mode="ios" class="card-content">
+        <ion-item lines="none" class="item-content">
+          <ion-icon slot="start" name="logo-google" color="danger"></ion-icon>
+          <ion-label>Google Pay</ion-label>
+          <ion-radio value="google" mode="md"></ion-radio>
+        </ion-item>
+      </ion-card>
+
+      <ion-card mode="ios" class="card-content">
+        <ion-item lines="none" class="item-content">
+          <ion-icon slot="start" name="logo-apple" color="dark"></ion-icon>
+          <ion-label>Apple Pay</ion-label>
+          <ion-radio value="apple" mode="md"></ion-radio>
+        </ion-item>
+      </ion-card>
+
+      <ion-card mode="ios" class="card-content">
+        <ion-item lines="none" class="item-content">
+          <ion-icon slot="start" name="wallet" color="primary"></ion-icon>
+          <ion-label>**** **** **** 9639</ion-label>
+          <ion-radio value="card" mode="md"></ion-radio>
+        </ion-item>
+      </ion-card>
+
+    </ion-radio-group>
+
+    <ion-button expand="block" fill="clear" shape="round" color="primary">
+      Add New Card
+    </ion-button>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onNext()" expand="block" fill="solid" shape="round" color="primary">
+      Continue
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

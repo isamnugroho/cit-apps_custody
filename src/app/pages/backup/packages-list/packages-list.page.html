@@ -1,0 +1,53 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Our Packages</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card mode="ios" class="packages-list" *ngFor="let item of util.salonList;let i = index;">
+    <ion-row class="row-info">
+      <ion-col size="3">
+        <div [ngStyle]="{'background-image': 'url('+item.cover+')'}" class="cover"></div>
+      </ion-col>
+      <ion-col size="9">
+        <div class="name-content-item">
+          <ion-label class="name">{{item.name}}</ion-label>
+          <ion-label class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.</ion-label>
+          <div class="price-tab">
+            <ion-label class="price">₹{{5 * (i+1)}} </ion-label>
+            <ion-button expand="block" shape="round" color="primary" size="small"
+              (click)="onPackageInfo(item.name,item.cover)">
+              Book
+            </ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" shape="round" color="primary" (click)="onPayment()">
+      Book Now
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

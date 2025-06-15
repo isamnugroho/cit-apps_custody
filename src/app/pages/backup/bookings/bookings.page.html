@@ -1,0 +1,139 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : CIT Apps This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-title>My Bookings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar mode="md">
+    <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged()" mode="md">
+      <ion-segment-button value="upcoming">
+        <ion-label>Upcoming</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        <ion-label>Completed</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="cancelled">
+        <ion-label>Cancelled</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="booking-screen">
+    <div class="booking-list" *ngIf="segment =='upcoming'">
+      <ion-card mode="ios" class="cart-content" *ngFor="let item of util.salonList;let i = index;">
+        <div class="top-content">
+          <ion-label class="date">July 15, 2023 - 09:30 AM</ion-label>
+          <div class="end-item">
+            <ion-label class="remind">Remind me</ion-label>
+            <ion-toggle class="toggle" mode="md" [checked]="i % 2 == 0 ? true: false"></ion-toggle>
+          </div>
+        </div>
+        <ion-row class="salon-info-list">
+          <ion-col size="4">
+            <div class="cover" [ngStyle]="{'background-image': 'url('+item.cover+')'}"></div>
+          </ion-col>
+          <ion-col size="8">
+            <div class="name-content">
+              <ion-label class="title">{{item.name}}</ion-label>
+              <ion-label class="address">{{item.address}}</ion-label>
+              <ion-label class="service-title">Services:</ion-label>
+              <ion-label class="service-name"> <span class="name"
+                  *ngFor="let sub of util.categories.slice(0,6);let i = index;"> {{sub.name}} <span *ngIf="i < 5"
+                    class="separate">,</span> </span> </ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+        <div class="bottom-content">
+          <ion-row>
+            <ion-col size="6">
+              <ion-button expand="block" fill="outline" shape="round" size="small" (click)="presentModal()">
+                Cancel Booking
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button expand="block" fill="solid" shape="round" size="small" (click)="onReceipt()">
+                View E-Receipt
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-card>
+    </div>
+
+    <div class="booking-list" *ngIf="segment =='completed'">
+      <ion-card mode="ios" class="cart-content" *ngFor="let item of util.salonList;let i = index;">
+        <div class="top-content">
+          <ion-label class="date">July 15, 2023 - 09:30 AM</ion-label>
+          <div class="end-item">
+            <ion-label class="completed">Completed</ion-label>
+          </div>
+        </div>
+        <ion-row class="salon-info-list">
+          <ion-col size="4">
+            <div class="cover" [ngStyle]="{'background-image': 'url('+item.cover+')'}"></div>
+          </ion-col>
+          <ion-col size="8">
+            <div class="name-content">
+              <ion-label class="title">{{item.name}}</ion-label>
+              <ion-label class="address">{{item.address}}</ion-label>
+              <ion-label class="service-title">Services:</ion-label>
+              <ion-label class="service-name"> <span class="name"
+                  *ngFor="let sub of util.categories.slice(0,6);let i = index;"> {{sub.name}} <span *ngIf="i < 5"
+                    class="separate">,</span> </span> </ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+        <div class="bottom-content">
+          <ion-row>
+            <ion-col size="12">
+              <ion-button expand="block" fill="outline" shape="round" size="small" (click)="onReceipt()">
+                View E-Receipt
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-card>
+    </div>
+
+    <div class="booking-list" *ngIf="segment =='cancelled'">
+      <ion-card mode="ios" class="cart-content" *ngFor="let item of util.salonList;let i = index;">
+        <div class="top-content">
+          <ion-label class="date">July 15, 2023 - 09:30 AM</ion-label>
+          <div class="end-item">
+            <ion-label class="cancelled">Cancelled</ion-label>
+          </div>
+        </div>
+        <ion-row class="salon-info-list">
+          <ion-col size="4">
+            <div class="cover" [ngStyle]="{'background-image': 'url('+item.cover+')'}"></div>
+          </ion-col>
+          <ion-col size="8">
+            <div class="name-content">
+              <ion-label class="title">{{item.name}}</ion-label>
+              <ion-label class="address">{{item.address}}</ion-label>
+              <ion-label class="service-title">Services:</ion-label>
+              <ion-label class="service-name"> <span class="name"
+                  *ngFor="let sub of util.categories.slice(0,6);let i = index;"> {{sub.name}} <span *ngIf="i < 5"
+                    class="separate">,</span> </span> </ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "(CUSTODY) CIT Apps",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

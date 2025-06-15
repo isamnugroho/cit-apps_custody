@@ -1,0 +1,73 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="dark">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-screen">
+    <div class="logo-content">
+      <img src="assets/images/auth.png" alt="" class="img">
+    </div>
+    <ion-label class="title">Create Your Account</ion-label>
+
+    <ion-item lines="none" class="input-item">
+      <ion-icon slot="start" name="mail-outline" color="medium"></ion-icon>
+      <ion-input placeholder="Email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-icon slot="start" name="lock-closed-outline" color="medium"></ion-icon>
+      <ion-input placeholder="Password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="check-item">
+      <ion-label>Remember me</ion-label>
+      <ion-checkbox slot="start" mode="md"></ion-checkbox>
+    </ion-item>
+
+    <ion-button expand="block" shape="round" color="primary" (click)="onNext()">
+      Sign Up
+    </ion-button>
+
+    <ion-row class="or-content">
+      <ion-col size="4">
+        <div class="line"></div>
+      </ion-col>
+      <ion-col size="4">
+        <ion-label class="lbl">or continue with</ion-label>
+      </ion-col>
+      <ion-col size="4">
+        <div class="line"></div>
+      </ion-col>
+    </ion-row>
+
+    <div class="social-login">
+      <ion-button fill="outline" color="medium" (click)="onNext()">
+        <ion-icon slot="icon-only" name="logo-facebook" color="secondary"></ion-icon>
+      </ion-button>
+      <ion-button fill="outline" color="medium" (click)="onNext()">
+        <ion-icon slot="icon-only" name="logo-google" color="danger"></ion-icon>
+      </ion-button>
+      <ion-button fill="outline" color="medium" (click)="onNext()">
+        <ion-icon slot="icon-only" name="logo-apple" color="dark"></ion-icon>
+      </ion-button>
+    </div>
+
+    <ion-button expand="block" fill="clear" shape="round" color="medium" (click)="onBack()">
+      <span class="register-lbl-gray">Already have an account ?</span> &nbsp; <span class="register-lbl-bold">Sign
+        In</span>
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,270 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-content>
+  <div class="salon-info-screen">
+    <div class="top-header">
+      <div class="top-btn">
+        <ion-button (click)="onBack()" fill="clear" color="light" size="small">
+          <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" color="light" size="small">
+          <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="progress">
+        <div [ngClass]="activeIndex == item ? 'active-dots':'dots'" *ngFor="let item of [0,1,2,3,4]"></div>
+      </div>
+      <swiper-container #swiper (slidechange)="changed()">
+        <swiper-slide *ngFor="let item of [1,2,3,4,5]">
+          <div class="top-gallery-content"
+            [ngStyle]="{'background-image': 'url(assets/images/salon-cover/'+item+'.png)'}">
+            <div class="overlay"></div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+
+    </div>
+
+    <div class="name-content">
+      <div class="top-content">
+        <ion-label class="title">{{name}}</ion-label>
+        <ion-label class="options">Open</ion-label>
+      </div>
+      <ion-label class="address"> <ion-icon name="location" color="primary"> </ion-icon> &nbsp; {{address}} </ion-label>
+      <ion-label class="address"> <ion-icon name="star-half" color="primary"> </ion-icon> &nbsp; {{rate}} (5,696
+        reviews) </ion-label>
+    </div>
+
+    <div class="bottom-content">
+      <div class="content">
+        <div class="circle">
+          <ion-icon name="globe" color="primary"></ion-icon>
+        </div>
+        <ion-label class="title">Website</ion-label>
+      </div>
+      <div class="content">
+        <div class="circle">
+          <ion-icon name="chatbubble-ellipses" color="primary"></ion-icon>
+        </div>
+        <ion-label class="title">Message</ion-label>
+      </div>
+      <div class="content">
+        <div class="circle">
+          <ion-icon name="call" color="primary"></ion-icon>
+        </div>
+        <ion-label class="title">Call</ion-label>
+      </div>
+      <div class="content">
+        <div class="circle">
+          <ion-icon name="compass" color="primary"></ion-icon>
+        </div>
+        <ion-label class="title">Direction</ion-label>
+      </div>
+      <div class="content">
+        <div class="circle">
+          <ion-icon name="navigate-circle" color="primary"></ion-icon>
+        </div>
+        <ion-label class="title">Share</ion-label>
+      </div>
+    </div>
+
+    <div class="break"></div>
+
+    <div class="main-title">
+      <ion-label class="title">Our Specialist</ion-label>
+      <ion-button expand="block" fill="clear" shape="round" color="primary" size="small" (click)="onSpecialist()">
+        See All
+      </ion-button>
+    </div>
+
+    <div class="stories-chat-list">
+      <swiper-container #swiper slides-per-view="4.2" autoplay="true">
+        <swiper-slide *ngFor="let item of util.userList;let i = index;">
+          <div class="avtar-list">
+            <div class="avatar" [ngStyle]="{'background-image': 'url('+item.image+')'}"></div>
+            <ion-label class="title">{{item.name.split(' ')[0]}}</ion-label>
+            <ion-label class="sub-title">Hair Stylist</ion-label>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+
+
+    <div class="segment-content">
+      <ion-button expand="block" [fill]="activeContent == 'about' ? 'solid':'outline'" shape="round" size="small"
+        color="primary" (click)="changeActiveContent('about')">
+        About
+      </ion-button>
+      <ion-button expand="block" [fill]="activeContent == 'services' ? 'solid':'outline'" shape="round" size="small"
+        color="primary" (click)="changeActiveContent('services')">
+        Services
+      </ion-button>
+      <ion-button expand="block" [fill]="activeContent == 'packages' ? 'solid':'outline'" shape="round" size="small"
+        color="primary" (click)="changeActiveContent('packages')">
+        Packages
+      </ion-button>
+      <ion-button expand="block" [fill]="activeContent == 'gallery' ? 'solid':'outline'" shape="round" size="small"
+        color="primary" (click)="changeActiveContent('gallery')">
+        Gallery
+      </ion-button>
+      <ion-button expand="block" [fill]="activeContent == 'reviews' ? 'solid':'outline'" shape="round" size="small"
+        color="primary" (click)="changeActiveContent('reviews')">
+        Reviews
+      </ion-button>
+
+      <div class="break"></div>
+    </div>
+
+    <div class="about-content" *ngIf="activeContent == 'about'">
+      <ion-label class="desc"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+        and scrambled it to make a type specimen book.</ion-label>
+      <ion-label class="title">Working Hours</ion-label>
+      <ion-row class="hours">
+        <ion-col size="5">
+          <ion-label class="name">Monday - Friday</ion-label>
+        </ion-col>
+        <ion-col size="2">
+          <ion-label class="separate">:</ion-label>
+        </ion-col>
+        <ion-col size="5">
+          <ion-label class="time">00:09 AM - 22:00 PM</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="hours">
+        <ion-col size="5">
+          <ion-label class="name">Saturday - Sunday</ion-label>
+        </ion-col>
+        <ion-col size="2">
+          <ion-label class="separate">:</ion-label>
+        </ion-col>
+        <ion-col size="5">
+          <ion-label class="time">10:00 AM - 21:00 PM</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-label class="title">Contact Us</ion-label>
+      <ion-label class="contact-number">(91) 523 - 636 - 8521</ion-label>
+      <ion-label class="title">Our Address</ion-label>
+      <ion-label class="map-address"> <ion-icon name="location" color="primary"> </ion-icon> &nbsp; {{address}}
+      </ion-label>
+      <div #map id="map" class="map"></div>
+    </div>
+
+    <div class="services-content" *ngIf="activeContent == 'services'">
+      <div class="main-title-content">
+        <ion-label class="title">Our Services</ion-label>
+        <ion-button expand="block" fill="clear" shape="round" color="primary" size="small" (click)="onServiceList()">
+          See All
+        </ion-button>
+      </div>
+      <div class="break"></div>
+      <ion-card mode="ios" class="service-list" *ngFor="let item of util.categories;let i = index"
+        (click)="onServiceDetails(item.name)">
+        <div class="name">{{item.name}} </div>
+        <div class="end">
+          <ion-label class="types">{{ 2 * (i+1) }} types</ion-label>
+          <ion-icon name="caret-forward-outline" color="primary"></ion-icon>
+        </div>
+      </ion-card>
+    </div>
+
+    <div class="packages-content" *ngIf="activeContent =='packages'">
+      <div class="main-title-content">
+        <ion-label class="title">Our Packages</ion-label>
+        <ion-button expand="block" fill="clear" shape="round" color="primary" size="small" (click)="onPackagesList()">
+          See All
+        </ion-button>
+      </div>
+      <div class="break"></div>
+
+      <ion-card mode="ios" class="packages-list" *ngFor="let item of util.salonList;let i = index;">
+        <ion-row class="row-info">
+          <ion-col size="3">
+            <div [ngStyle]="{'background-image': 'url('+item.cover+')'}" class="cover"></div>
+          </ion-col>
+          <ion-col size="9">
+            <div class="name-content-item">
+              <ion-label class="name">{{item.name}}</ion-label>
+              <ion-label class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.</ion-label>
+              <div class="price-tab">
+                <ion-label class="price">₹{{5 * (i+1)}} </ion-label>
+                <ion-button expand="block" shape="round" color="primary" size="small"
+                  (click)="onPackageInfo(item.name,item.cover)">
+                  Book
+                </ion-button>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+
+    <div class="gallery-content" *ngIf="activeContent == 'gallery'">
+      <div class="main-title-content">
+        <ion-label class="title">Our Gallery</ion-label>
+        <ion-button expand="block" fill="clear" shape="round" color="primary" size="small" (click)="onGallery()">
+          See All
+        </ion-button>
+      </div>
+      <div class="break"></div>
+      <ion-row class="gallery-data">
+        <ion-col size="4" *ngFor="let item of util.salonList;">
+          <div [ngStyle]="{'background-image': 'url('+item.cover+')'}" class="cover"></div>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="review-content" *ngIf="activeContent == 'reviews'">
+      <div class="main-title-content">
+        <ion-label class="title"> <ion-icon slot="start" name="star-half" color="primary"></ion-icon> &nbsp; {{rate}}
+          (5,696
+          reviews) </ion-label>
+        <ion-button expand="block" fill="clear" shape="round" color="primary" size="small" (click)="onReviewsList()">
+          See All
+        </ion-button>
+      </div>
+      <div class="break"></div>
+
+      <div class="reviews-list">
+        <div class="list-item" *ngFor="let item of util.userList;let i = index;">
+          <div class="top-content">
+            <div class="front">
+              <div [ngStyle]="{'background-image': 'url('+item.image+')'}" class="cover"></div>
+              <ion-label class="name">{{item.name}}</ion-label>
+            </div>
+            <div class="end">
+              <ion-label class="rate"> <ion-icon slot="start" name="star" color="primary"></ion-icon> 5 </ion-label>
+              <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline" color="medium"
+                class="more-icon"></ion-icon>
+            </div>
+          </div>
+          <ion-label class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.</ion-label>
+          <div class="bottom-data">
+            <div class="icon-date">
+              <ion-icon slot="start" name="heart" color="danger"></ion-icon>
+              <ion-label class="name">856</ion-label>
+            </div>
+            <div class="space"></div>
+            <div class="icon-date">
+              <ion-label class="name">2 months ago</ion-label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onPayment()" expand="block" fill="solid" shape="round" color="primary">
+      Book Now
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

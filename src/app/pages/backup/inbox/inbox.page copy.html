@@ -1,0 +1,68 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-title>Inbox</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar mode="md">
+    <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged()" mode="md">
+      <ion-segment-button value="chats">
+        <ion-label>Chats</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="calls">
+        <ion-label>Calls</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="real-chat-list" *ngIf="segment == 'chats'">
+    <div class="chat-item-list" (click)="onInbox(i,'chat')" *ngFor="let item of util.userList;let i = index;">
+      <div class="first">
+        <div class="avatar" [ngStyle]="{'background-image': 'url('+item.image+')'}">
+          <div [ngClass]="i % 2==0 ?'online-circle':'offline-circle'"></div>
+        </div>
+        <div class="name-content">
+          <ion-label class="name">{{item.name}}</ion-label>
+          <ion-label class="last-message">You can change every details</ion-label>
+        </div>
+      </div>
+      <div class="last">
+        <ion-label class="time-bold" *ngIf="i % 2==0">{{i+1}}m ago</ion-label>
+        <ion-label class="time" *ngIf="i % 2 !=0"> {{i+1}}m ago</ion-label>
+      </div>
+    </div>
+  </div>
+  <div class="real-chat-list" *ngIf="segment == 'calls'">
+    <div class="chat-item-list" *ngFor="let item of util.userList;let i = index;">
+      <div class="first">
+        <div class="avatar" [ngStyle]="{'background-image': 'url('+item.image+')'}">
+          <div [ngClass]="i % 2==0 ?'online-circle':'offline-circle'"></div>
+        </div>
+        <div class="name-content">
+          <ion-label class="name">{{item.name}}</ion-label>
+          <ion-label class="last-message">You can change every details</ion-label>
+        </div>
+      </div>
+      <div class="last">
+        <ion-button size="small" fill="clear">
+          <ion-icon slot="icon-only" name="call-outline" color="primary"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

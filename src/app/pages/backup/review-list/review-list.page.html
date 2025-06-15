@@ -1,0 +1,51 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Reviews</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="reviews-list">
+    <div class="list-item" *ngFor="let item of util.userList;let i = index;">
+      <div class="top-content">
+        <div class="front">
+          <div [ngStyle]="{'background-image': 'url('+item.image+')'}" class="cover"></div>
+          <ion-label class="name">{{item.name}}</ion-label>
+        </div>
+        <div class="end">
+          <ion-label class="rate"> <ion-icon slot="start" name="star" color="primary"></ion-icon> 5 </ion-label>
+          <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline" color="medium"
+            class="more-icon"></ion-icon>
+        </div>
+      </div>
+      <ion-label class="desc">Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry.</ion-label>
+      <div class="bottom-data">
+        <div class="icon-date">
+          <ion-icon slot="start" name="heart" color="danger"></ion-icon>
+          <ion-label class="name">856</ion-label>
+        </div>
+        <div class="space"></div>
+        <div class="icon-date">
+          <ion-label class="name">2 months ago</ion-label>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,53 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="auth-screen">
+    <div class="center-image">
+      <div [ngStyle]="{'background-image': 'url(assets/images/auth.png)'}" class="bg-cover top-cover"></div>
+    </div>
+    <ion-label class="title">Let's you in</ion-label>
+
+    <ion-button expand="block" shape="round" fill="outline" color="medium">
+      <ion-icon slot="start" name="logo-facebook" color="tertiary"></ion-icon>
+      Continue with Facebook
+    </ion-button>
+    <ion-button expand="block" shape="round" fill="outline" color="medium">
+      <ion-icon slot="start" name="logo-google" color="danger"></ion-icon>
+      Continue with Google
+    </ion-button>
+    <ion-button expand="block" shape="round" fill="outline" color="medium">
+      <ion-icon slot="start" name="logo-apple" color="dark"></ion-icon>
+      Continue with Apple
+    </ion-button>
+
+    <ion-row class="or-content">
+      <ion-col size="5">
+        <div class="line"></div>
+      </ion-col>
+      <ion-col size="2">
+        <ion-label class="or-lbl">or</ion-label>
+      </ion-col>
+      <ion-col size="5">
+        <div class="line"></div>
+      </ion-col>
+    </ion-row>
+
+    <ion-button expand="block" shape="round" color="primary" (click)="onLogin()">
+      Sign in with Password
+    </ion-button>
+
+    <ion-button expand="block" fill="clear" shape="round" color="medium" class="register-btn" (click)="onRegister()">
+      Don't have an account? <span class="register-text">Sign Up</span>
+    </ion-button>
+  </div>
+</ion-content>

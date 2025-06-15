@@ -1,0 +1,45 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Security</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="settings-content">
+    <ion-item lines="none" class="content-item">
+      <ion-label class="lbl">Remember me</ion-label>
+      <ion-toggle mode="md" slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item lines="none" class="content-item">
+      <ion-label class="lbl">Face ID</ion-label>
+      <ion-toggle mode="md" slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item lines="none" class="content-item">
+      <ion-label class="lbl">Biometric ID</ion-label>
+      <ion-toggle mode="md" slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item lines="none" class="content-item">
+      <ion-label class="lbl">Google Authenticator</ion-label>
+      <ion-toggle mode="md" slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-button expand="block" shape="round" color="primary">
+      Change PIN
+    </ion-button>
+  </div>
+</ion-content>

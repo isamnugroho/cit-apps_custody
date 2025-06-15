@@ -1,0 +1,80 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <ion-title>
+        <img src="assets/bijak.png" alt="Bijak Logo" style="height:32px; vertical-align:middle; margin-right:10px;">
+        Job Finish
+      </ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let item of listDataLoading$ | async"></div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="font-size: 20px; font-weight: bold; text-align: center;">
+        Finish Job
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <div class="confirm-payment-screen">
+    <ion-card mode="ios" class="card-content">
+      <div class="flex-content">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="th">
+              TOTAL NOMINAL
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="td" style="text-align: left; font-size: 18px; font-weight: bold;">
+                {{total | currency:'Rp ':'symbol':'1.0'}}
+            </ion-col>
+          </ion-row>
+          <ion-grid></ion-grid>
+          <ion-row>
+            <ion-col class="th">
+              TERBILANG
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="td" style="text-align: left; font-size: 12px; font-weight: bold;">
+                {{total | terbilangFormat:''}}
+            </ion-col>
+          </ion-row>
+          <ion-grid></ion-grid>
+          <ion-row>
+            <ion-col class="th">
+              TTD PIC
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="td">
+              <img id="ttdImage" src="{{ util.signatureImgPIC }}" alt="" srcset="" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="is_valid_sign">
+  <ion-toolbar>
+    <ion-button (click)="onConfirm()" expand="block" fill="solid" shape="round" color="primary">
+      Submit
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+

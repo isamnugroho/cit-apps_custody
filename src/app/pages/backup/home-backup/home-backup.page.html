@@ -1,0 +1,108 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-title>Locks & Lashes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onNotification()">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="onBookmarks()">
+        <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar class="ion-no-border">
+    <ion-searchbar placeholder="Search" inputmode="text" type="text" mode="ios"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="home_screen">
+    <ion-label class="greeting-title">Morning, John 👋</ion-label>
+    <div class="sliders">
+      <swiper-container #swiper>
+        <swiper-slide *ngFor="let item of util.offers">
+          <div class="bg-cover slider-image"
+            [ngStyle]="{'background-image': 'url(assets/images/slider-background.jpg)'}">
+            <div class="content-bg">
+              <div class="top-content">
+                <div class="left-data">
+                  <ion-label class="title">{{item.off}} OFF</ion-label>
+                  <ion-label class="sub-title">{{item.title}}</ion-label>
+                </div>
+                <ion-label class="off-title">{{item.off}}%</ion-label>
+              </div>
+              <ion-label class="desc">{{item.desc}}</ion-label>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+
+    <div class="categories-slider">
+      <swiper-container #swiper slides-per-view="4">
+        <swiper-slide *ngFor="let item of util.categories;">
+          <div class="category-info" (click)="onSalonList(item.name)">
+            <div class="circle-content">
+              <img [src]="item.image" alt="" class="img">
+            </div>
+            <ion-label class="name">{{ (item.name.length>8)? (item.name | slice:0:8)+'..':(item.name) }}</ion-label>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+
+    <div class="breaker"></div>
+
+    <div class="main-title">
+      <ion-label class="title">NearBy Your Location</ion-label>
+      <ion-button expand="block" fill="clear" shape="round" color="primary" size="small">
+        See All
+      </ion-button>
+    </div>
+
+    <div class="segment-content">
+      <ion-button expand="block" shape="round" color="primary" size="small">
+        All
+      </ion-button>
+      <ion-button expand="block" shape="round" fill="outline" color="primary" size="small"
+        *ngFor="let item of util.categories;" (click)="onSalonList(item.name)">
+        {{item.name}}
+      </ion-button>
+    </div>
+
+    <ion-row class="salon-list" *ngFor="let item of util.salonList;let i = index;">
+      <ion-col size="3" (click)="onSalonInfo(i)">
+        <div class="cover" [ngStyle]="{'background-image': 'url('+item.cover+')'}"></div>
+      </ion-col>
+      <ion-col size="7" (click)="onSalonInfo(i)">
+        <div class="name-content">
+          <ion-label class="title">{{item.name}}</ion-label>
+          <ion-label class="address">{{item.address}}</ion-label>
+          <div class="other-info">
+            <div class="icon">
+              <ion-icon name="location" color="primary"></ion-icon>
+              <ion-label class="title">{{item.rate}}</ion-label>
+            </div>
+            <div class="space"></div>
+            <div class="icon">
+              <ion-icon name="star" color="primary"></ion-icon>
+              <ion-label class="title">{{item.distance}}</ion-label>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="1">
+        <ion-button fill="clear" size="small">
+          <ion-icon slot="icon-only" [name]="i % 2==0 ? 'bookmark':'bookmark-outline'" color="primary"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

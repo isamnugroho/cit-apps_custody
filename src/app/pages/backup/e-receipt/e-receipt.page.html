@@ -1,0 +1,80 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>E-Receipt</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="confirm-payment-screen">
+    <div class="barcode">
+      <img src="assets/images/barcode.png" alt="" class="img">
+    </div>
+    <ion-card mode="ios" class="card-content">
+      <div class="flex-content">
+        <ion-label class="title">Barber/Salon</ion-label>
+        <ion-label class="title-bold">Elevate Salon</ion-label>
+      </div>
+      <div class="flex-content">
+        <ion-label class="title">Address</ion-label>
+        <ion-label class="title-bold">3788 Chapel Street Sugar Land</ion-label>
+      </div>
+      <div class="flex-content">
+        <ion-label class="title">Name</ion-label>
+        <ion-label class="title-bold">Richard G. Oneal</ion-label>
+      </div>
+      <div class="flex-content">
+        <ion-label class="title">Phone</ion-label>
+        <ion-label class="title-bold">(91) 526 963 87458</ion-label>
+      </div>
+      <div class="flex-content">
+        <ion-label class="title">Booking Date</ion-label>
+        <ion-label class="title-bold">21, July, 2023</ion-label>
+      </div>
+      <div class="flex-content">
+        <ion-label class="title">Booking Slot</ion-label>
+        <ion-label class="title-bold">09:30 AM</ion-label>
+      </div>
+      <div class="flex-content">
+        <ion-label class="title">Specialist</ion-label>
+        <ion-label class="title-bold">Matthew M. Hernandez</ion-label>
+      </div>
+    </ion-card>
+
+    <ion-card mode="ios" class="card-content">
+      <div class="flex-content" *ngFor="let item of util.categories.slice(0,4);let index = index;">
+        <ion-label class="title">{{item.name}}</ion-label>
+        <ion-label class="title-bold">₹{{3 * (1+index)}}.00</ion-label>
+      </div>
+      <div class="break"></div>
+      <div class="flex-content">
+        <ion-label class="title">Total</ion-label>
+        <ion-label class="title-bold">₹8,32,33.00</ion-label>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onDownload()" expand="block" fill="solid" shape="round" color="primary">
+      Download E-Receipt
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

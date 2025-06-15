@@ -1,0 +1,34 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : CIT Apps This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title color="success">BOC Display</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="">
+    <img [attr.src]="imageSrc" class="modal-image" />
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button (click)="dismiss('cancel')" expand="block" shape="round" color="light">
+          Cancel
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button (click)="dismiss('ok')" expand="block" shape="round" color="primary">
+          Ulangi Upload
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

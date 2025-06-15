@@ -1,0 +1,187 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" mode="md">
+    <ion-buttons slot="start">
+      <!-- <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button> -->
+      <ion-title>Action Job</ion-title>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+  <ion-toolbar mode="md">
+    <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged()" mode="md">
+      <ion-segment-button value="upcoming">
+        <ion-label>Loading</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        <ion-label>Done Loading</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="cancelled">
+        <ion-label>Completed</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="booking-screen">
+    <div class="booking-list" *ngIf="segment =='upcoming'">
+      <!-- <div *ngFor="let item of data_loading;let i = index;"> -->
+      <div *ngFor="let item of listDataLoading$ | async; let i = index;">
+        <ion-card *ngIf="item.status_loading==false" mode="ios" class="cart-content">
+          <div class="top-content">
+            <ion-label class="date">{{item.no_boc}}</ion-label>
+          </div>
+          <ion-row class="salon-info-list">
+            <ion-col size="8">
+              <div class="name-content">
+                <ion-label class="title">{{item.nama}}</ion-label>
+                <ion-label class="address">{{item.alamat}}</ion-label>
+                <ion-label class="service-title">Services: <span class="service-name name">
+                    {{item.jenis_layanan}}</span></ion-label>
+                <ion-label class="service-title">Transaction: <span class="service-name name">
+                    {{item.jenis_transaksi}}</span></ion-label>
+                <ion-label class="service-title">Item: <span class="service-name name">
+                    {{item.jenis_barang}}</span></ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+          <div class="bottom-content">
+            <ion-row>
+              <ion-col size="12">
+                <ion-button expand="block" fill="solid" shape="round" size="small" (click)="onLoadingDetail(item.id_plan, item.id)">
+                  Loading
+                </ion-button>
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="inquiryRekeningX(item.id, item.rekening_debit, item.rekening_client, item.total_transfer)">
+                  Inquiry Name
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card>
+      </div>
+    </div>
+
+    <div class="booking-list" *ngIf="segment =='completed'">
+      <!-- <div *ngFor="let item of data_done_loading;let i = index;"> -->
+      <div *ngFor="let item of listDataDoneLoading$ | async; let i = index;">
+        <ion-card *ngIf="item.status_loading==true" mode="ios" class="cart-content">
+          <div class="top-content">
+            <ion-label class="date">{{item.no_boc}}</ion-label>
+          </div>
+          <ion-row class="salon-info-list">
+            <ion-col size="8">
+              <div class="name-content">
+                <ion-label class="title">{{item.nama}}</ion-label>
+                <ion-label class="address">{{item.alamat}}</ion-label>
+                <ion-label class="service-title">Services: <span class="service-name name">
+                    {{item.jenis_layanan}}</span></ion-label>
+                <ion-label class="service-title">Transaction: <span class="service-name name">
+                    {{item.jenis_transaksi}}</span></ion-label>
+                <ion-label class="service-title">Item: <span class="service-name name">
+                    {{item.jenis_barang}}</span></ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+          <div class="bottom-content">
+            <ion-row>
+              <ion-col size="12">
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="onToDestination(item.id)">
+                  Go To Destination
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card>
+      </div>
+
+      <!-- <ion-card mode="ios" class="cart-content" *ngFor="let item of util.salonList;let i = index;">
+        <div *ngIf="item.status_loading==true">
+          <div class="top-content">
+            <ion-label class="date">July 15, 2023 - 09:30 AM</ion-label>
+          </div>
+          <ion-row class="salon-info-list">
+            <ion-col size="8">
+              <div class="name-content">
+                <ion-label class="title">Jakarta - Jayakarta</ion-label>
+                <ion-label class="address">Jl. Pangeran Jayakarta 117 Blok A6 - 7 Jakarta Pusat 10730</ion-label>
+                <ion-label class="service-title">Services: <span class="service-name name"> Delivery</span></ion-label>
+                <ion-label class="service-title">Transaction: <span class="service-name name"> Said To Contain
+                    (STC)</span></ion-label>
+                <ion-label class="service-title">Item: <span class="service-name name"> Uang</span></ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+          <div class="bottom-content">
+            <ion-row>
+              <ion-col size="12">
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="onToDestination()">
+                  Go To Destination
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </ion-card> -->
+    </div>
+
+    <div class="booking-list" *ngIf="segment =='cancelled'">
+      <div *ngFor="let item of listDataComplete$ | async; let i = index;">
+        <ion-card mode="ios" class="cart-content">
+          <div class="top-content">
+            <ion-label class="date">July 15, 2023 - 09:30 AM</ion-label>
+            <div class="end-item">
+              <ion-label *ngIf="item.status_transfer!=='00'" class="failed">Not Complete</ion-label>
+              <ion-label *ngIf="item.status_transfer=='00'" class="completed">Completed</ion-label>
+            </div>
+          </div>
+          <ion-row class="salon-info-list">
+            <ion-col size="8">
+              <div class="name-content">
+                <ion-label class="title">{{item.nama}}</ion-label>
+                <ion-label class="address">{{item.alamat}}</ion-label>
+                <ion-label class="service-title">Services: <span class="service-name name">
+                    {{item.jenis_layanan}}</span></ion-label>
+                <ion-label class="service-title">Transaction: <span class="service-name name">
+                    {{item.jenis_transaksi}}</span></ion-label>
+                <ion-label class="service-title">Item: <span class="service-name name">
+                    {{item.jenis_barang}}</span></ion-label>
+              </div>
+            </ion-col>
+          </ion-row>
+          <div class="bottom-content">
+            <ion-row>
+              <ion-col size="12">
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="downloadPdf(item.id, item.id_plan)">
+                  Download BOC
+                </ion-button>
+                <ion-button *ngIf="item.status_transfer!=='00'" expand="block" fill="outline" shape="round" size="small" (click)="getToken(item.id, item.rekening_debit, item.rekening_client, item.total_transfer)">
+                  Transfer To Client
+                </ion-button>
+                <ion-button *ngIf="item.status_transfer=='00'" expand="block" fill="outline" shape="round" size="small" (click)="statusRekening(item.transferId, item.txnDate, item.rekening_debit)">
+                  Status Transfer
+                </ion-button>
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="inquiryRekeningX(item.id, item.rekening_debit, item.rekening_client, item.total_transfer)">
+                  Inquiry Name
+                </ion-button>
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="OI()">
+                  OI
+                </ion-button>
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="OOI()">
+                  OOI
+                </ion-button>
+                <ion-button expand="block" fill="outline" shape="round" size="small" (click)="OOOI()">
+                  OOOI
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,37 @@
+.th {
+  background-color: #e6e6e6;
+  border: 1px solid black;
+  font-size: 11px;
+}
+
+.td {
+  background-color: #fff;
+  border: 1px solid black;
+  font-size: 11px;
+}
+
+.open-lbl {
+  border: 1px solid black;
+  display: flex;
+  background-color: #E0C4F7;
+  border-radius: 20px;
+  box-shadow: 2px 3px var(--ion-color-dark);
+  align-items: center;
+  justify-content: center;
+
+  .lbl {
+      font-size: 12px;
+      font-family: 'semi-bold';
+      color: var(--ion-color-dark);
+      padding: 5px;
+      width: max-content;
+      align-items: center;
+      justify-content: center;
+  }
+}
+
+.td-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

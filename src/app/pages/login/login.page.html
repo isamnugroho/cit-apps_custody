@@ -1,0 +1,223 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<style>
+  body, ion-content {
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
+    min-height: 100vh;
+  }
+  .login-screen {
+    background: rgba(255,255,255,0.97);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(30,60,114,0.18);
+    padding: 38px 24px 28px 24px;
+    max-width: 390px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .login-screen .title {
+    display: block;
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e3c72;
+    margin: 22px 0 28px 0;
+    letter-spacing: 0.7px;
+    text-shadow: 0 2px 8px rgba(42,82,152,0.08);
+  }
+  .input-item {
+    border-radius: 14px;
+    background: #eaf0fb;
+    margin-bottom: 20px;
+    --highlight-background: #2a5298;
+    box-shadow: 0 2px 8px rgba(30,60,114,0.04);
+  }
+  ion-input {
+    color: #1e3c72;
+    font-weight: 500;
+    font-size: 1.05rem;
+  }
+  ion-icon[color="medium"] {
+    color: #2a5298 !important;
+    font-size: 1.3em;
+  }
+  ion-button[color="primary"] {
+    --background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    --background-activated: #2a5298;
+    --background-focused: #1e3c72;
+    --color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 14px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(42,82,152,0.15);
+  }
+  .logo-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .logo-content img {
+    height: 54px;
+    filter: drop-shadow(0 2px 8px rgba(30,60,114,0.12));
+    border-radius: 12px;
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    padding: 8px;
+  }
+  @media (max-width: 480px) {
+    .login-screen {
+      padding: 18px 4vw 18px 4vw;
+      margin-top: 18px;
+    }
+    .logo-content img {
+      height: 40px;
+    }
+  }
+</style>
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: transparent;">
+    <ion-buttons slot="start">
+      <!-- <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<style>
+  .login-screen .title {
+    display: block;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e3c72;
+    margin: 18px 0 24px 0;
+    letter-spacing: 0.5px;
+  }
+  .input-item {
+    border-radius: 12px;
+    background: #eaf0fb;
+    margin-bottom: 18px;
+    --highlight-background: #2a5298;
+  }
+  ion-input {
+    color: #1e3c72;
+    font-weight: 500;
+  }
+  ion-icon[color="medium"] {
+    color: #2a5298 !important;
+  }
+  ion-button[color="primary"] {
+    --background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    --background-activated: #2a5298;
+    --background-focused: #1e3c72;
+    --color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 480px) {
+    .login-screen {
+      padding: 18px 6vw 18px 6vw;
+      margin-top: 18px;
+    }
+  }
+</style>
+
+<ion-content class="ion-padding">
+  <div class="login-screen">
+    <!-- <div class="logo-content">
+      <img src="assets/images/auth.png" alt="" class="img">
+    </div> -->
+    <img src="assets/bijak.png" alt="Logo" style="height:40px; margin:auto; display:block;" />
+    <ion-label class="title">BIMA CIT Apps<br>(CUSTODY)</ion-label>
+
+    <ion-item lines="none" class="input-item">
+      <ion-icon slot="start" name="person-outline" color="medium"></ion-icon>
+      <ion-input placeholder="User ID" type="number" [(ngModel)]="username" [value]="remember ? username : ''"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-icon slot="start" name="lock-closed-outline" color="medium"></ion-icon>
+      <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item lines="none" class="check-item" style="margin-bottom: 10px;">
+      <ion-checkbox slot="start" mode="md" [(ngModel)]="rememberMe" [checked]="remember === true"></ion-checkbox>
+      <ion-label>Remember me</ion-label>
+    </ion-item> -->
+
+    <ion-button expand="block" shape="round" (click)="onLogin()" style="--background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);">
+      Sign In
+    </ion-button>
+    <!-- <ion-button expand="block" fill="clear" shape="round" color="medium" (click)="onReset()">
+      Forgot Password?
+    </ion-button> -->
+
+    <!-- <ion-row class="or-content">
+      <ion-col size="4">
+        <div class="line"></div>
+      </ion-col>
+      <ion-col size="4">
+        <ion-label class="lbl">or continue with</ion-label>
+      </ion-col>
+      <ion-col size="4">
+        <div class="line"></div>
+      </ion-col>
+    </ion-row> -->
+<!-- 
+    <div class="social-login">
+      <ion-button fill="outline" color="medium" (click)="onHome()">
+        <ion-icon slot="icon-only" name="logo-facebook" color="secondary"></ion-icon>
+      </ion-button>
+      <ion-button fill="outline" color="medium" (click)="onHome()">
+        <ion-icon slot="icon-only" name="logo-google" color="danger"></ion-icon>
+      </ion-button>
+      <ion-button fill="outline" color="medium" (click)="onHome()">
+        <ion-icon slot="icon-only" name="logo-apple" color="dark"></ion-icon>
+      </ion-button>
+    </div> -->
+
+    <!-- <ion-button expand="block" fill="clear" shape="round" color="medium" (click)="onRegister()">
+      <span class="register-lbl-gray">Don't have an account ?</span> &nbsp; <span class="register-lbl-bold">Sign
+        Up</span>
+    </ion-button> -->
+
+    
+      <div style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 38px;
+        color: #1e3c72;
+        font-size: 1em;
+        opacity: 0.96;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 8px rgba(42,82,152,0.10);
+        background: rgba(234,240,251,0.7);
+        border-radius: 12px;
+        padding: 10px 22px 8px 22px;
+        box-shadow: 0 2px 8px rgba(30,60,114,0.07);
+        max-width: 180px;
+        margin-left: auto;
+        margin-right: auto;
+      ">
+        <ion-icon name="information-circle-outline" style="font-size: 1.4em; margin-bottom: 6px; color: #2a5298; opacity: 0.85;"></ion-icon>
+        <span style="font-weight: 600; letter-spacing: 0.7px;">Version <span style="color:#2a5298;">1.0.2</span></span>
+      </div>
+  </div>
+
+  
+</ion-content>

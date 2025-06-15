@@ -1,0 +1,17 @@
+DEVELOPMENT MODE
+  - buka file capacitor.config.ts
+    - beri komentar pada plugins LiveUpdate
+  - buka file app-routing.module.ts
+    - pada path: '', berikomentar pada welcome, hilangkan komentar pada login
+
+
+19005 : 123 GA
+19032 : 123 OPR
+19033 : 123 CPC
+
+TAMBAH POTO PROFILE DI
+    USER ACCESS
+    JENIS KELAMIN DAN ALAMAT TAKEOUT
+    DEPARTMENT, SUB DEPARTMENT, JABATAN SELECT BOX
+
+MUNCULIN DATA DASHBOARD

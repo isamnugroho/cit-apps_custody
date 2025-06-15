@@ -1,0 +1,50 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" mode="md">
+    <ion-buttons slot="start">
+      <ion-button (click)="onBack()" color="light">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="light">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <div class="package-details-screen">
+    <div [ngStyle]="{'background-image': 'url('+image+')'}" class="cover"></div>
+    <ion-label class="title">{{name}}</ion-label>
+    <ion-label class="sub-title">Seasonal hair color promotion, valid until July, 22, 2022</ion-label>
+
+    <ion-label class="desc"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+      and scrambled it to make a type specimen book.</ion-label>
+
+    <ion-label class="bold-title">Services</ion-label>
+
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of util.categories">
+        <ion-label class="service-name"> <ion-icon name="checkbox" color="primary"></ion-icon> &nbsp;
+          {{item.name}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="onPayment()" expand="block" fill="solid" shape="round" color="primary">
+      Book Now
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

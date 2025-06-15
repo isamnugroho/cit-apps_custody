@@ -1,0 +1,188 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header class="ion-no-border custom-header">
+  <ion-toolbar mode="md" color="primary">
+    <ion-title>
+      <img src="assets/bijak.png" alt="Bijak CIT Apps" class="bijak-logo" />
+      BIMA CIT Apps
+    </ion-title>
+    <ion-buttons slot="end">
+      <!-- <ion-button (click)="onNotification()">
+        <ion-icon slot="icon-only" name="notifications-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="onBookmarks()">
+        <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+      </ion-button> -->
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<style>
+  .custom-header .bijak-logo {
+    height: 32px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #fff;
+    padding: 2px;
+  }
+  .custom-header ion-title {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+</style>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="home_screen">
+    <ion-label class="greeting-title">Welcome, {{user_name.split(" ")[0]}} 👋</ion-label>
+    <!-- <button (click)="authenticateUser()">Login with Fingerprint</button> -->
+
+    <ion-card mode="ios" class="top-card-content">
+      <ion-row class="ion-no-margin ion-no-padding">
+        <!-- <ion-col size="4">
+          <div class="cover-image" [ngStyle]="{'background-image': 'url(assets/images/avatar/5.jpg)'}"></div>
+        </ion-col> -->
+        <ion-col size="12">
+          <ion-label class="title">{{user_name}}</ion-label>
+          <ion-label class="sub-title"></ion-label>
+          <div class="followers">
+            <div class="content">
+              <ion-label class="lbl">ID Pegawai</ion-label>
+              <ion-label class="count">{{user_id}}</ion-label>
+            </div>
+            <div class="content">
+              <ion-label class="lbl">Jabatan</ion-label>
+              <ion-label class="count">{{nama_jabatan}}</ion-label>
+            </div>
+            <div class="content">
+              <ion-label class="lbl"></ion-label>
+              <ion-label class="count"></ion-label>
+            </div>
+          </div>
+
+          <!-- <ion-button expand="block" fill="solid" color="primary" size="small" (click)="onApiServer()">
+            Edit Profile OIE
+          </ion-button> -->
+          <!-- <ion-button expand="block" fill="solid" color="primary" size="small" (click)="onTest()">
+            TEST
+          </ion-button> -->
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <div class="breaker"></div>
+
+    <div class="main-title">
+      <ion-label class="title">CASH IN TRANSIT</ion-label>
+      <ion-button *ngIf="button_active" expand="block" fill="solid" shape="round" color="primary" size="small" (click)="OnLoading()">
+        Start Job
+      </ion-button>
+    </div>
+
+
+    <ion-accordion-group [multiple]="false" [value]="['first']">
+      <!-- <div *ngFor="let item of data_run;let i = index;"> -->
+      <div *ngFor="let item of listDataPlan$ | async; let i = index;">
+        <ion-accordion value="{{i==0 ? 'first' : i}}">
+          <ion-item slot="header" color="light">
+            <ion-label>{{item.no_boc}}</ion-label>
+          </ion-item>
+          <div slot="content">
+            <ion-grid>
+              <ion-row>
+                <ion-col class="th">
+                  RUNSHEET CIT
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="th">
+                  BANK
+                </ion-col>
+                <ion-col class="th">
+                  PIC
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="td">
+                  {{item.nama_pt}}
+                </ion-col>
+                <ion-col class="td">
+                  {{item.pic}}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="th">
+                  NAMA
+                </ion-col>
+                <ion-col class="th">
+                  AREA
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="td">
+                  {{item.nama}}
+                </ion-col>
+                <ion-col class="td">
+                  {{item.area}}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+              </ion-row>
+              <ion-row>
+                <ion-col class="th">
+                  JENIS
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="th">
+                  LAYANAN
+                </ion-col>
+                <ion-col class="th">
+                  BARANG
+                </ion-col>
+                <ion-col class="th">
+                  TRANSAKSI
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="td">
+                  {{item.jenis_layanan}}
+                </ion-col>
+                <ion-col class="td">
+                  {{item.jenis_barang}}
+                </ion-col>
+                <ion-col class="td">
+                  <span *ngIf="item.jenis_transaksi=='STC'">Said To Contain</span>
+                  <span *ngIf="item.jenis_transaksi=='BBC'">Bulk Bundle Count</span>
+                  <span *ngIf="item.jenis_transaksi=='COS'">Count On SIte</span> ({{item.jenis_transaksi}})
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="item.total_nominal!==''">
+                <ion-col class="th">
+                  TOTAL NOMINAL
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="item.total_nominal!==''">
+                <ion-col class="td">
+                  {{item.total_nominal | currency:'Rp ':'symbol':'1.0'}}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-accordion>
+      </div>
+    </ion-accordion-group>
+  </div>
+</ion-content>

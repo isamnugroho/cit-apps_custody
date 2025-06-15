@@ -1,0 +1,36 @@
+<!--
+  Authors : initappz (Rahul Jograna)
+  Website : https://initappz.com/
+  App Name : Salon Locks & Lashes This App Template Source code is licensed as per the
+  terms found in the Website https://initappz.com/license
+  Copyright and Good Faith Purchasers © 2023-present initappz.
+-->
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title color="danger">Cancel Booking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="cancel-modal-screen">
+    <ion-label class="title">Are you sure to cancel your barber/salon booking?</ion-label>
+    <ion-label class="sub-title">Only 80% of the money you can refund from your payment accordning to our
+      policy</ion-label>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button (click)="dismiss('cancel')" expand="block" shape="round" color="light">
+          Cancel
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button (click)="dismiss('ok')" expand="block" shape="round" color="primary">
+          Yes, Cancel Booking
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
